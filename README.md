@@ -63,3 +63,67 @@ OPENAI_API_KEY=sk-...
 
 Make sure this key matches the account you used on the OpenAI platform.
 
+##How to Run the Map Assistant
+
+The agent.main_agent script automatically spins up the two MCP servers (geo-server and routing-server) over stdio and attaches them to a single Map Assistant.
+
+From inside the virtual environment:
+```bash
+python -m agent.main_agent
+```
+
+If everything is configured, you should see something like:
+```bash
+🚀 Map agent ready. Ask things like:
+   - 'What are the coordinates of American University of Beirut?'
+   - 'Plan a driving route from AUB to Beirut Airport.'
+   - 'Find 3 cafes in Beirut and build a distance matrix between them.'
+Type 'exit' to quit.
+```
+
+Now you can type questions in natural language, for example:
+
+- What are the coordinates of American University of Beirut?
+
+- Find 3 cafes in Beirut and give me their coordinates and a distance matrix.
+
+- Plan a driving route from American University of Beirut to Beirut–Rafic Hariri International Airport.
+
+- Given these 3 locations, which one is closest to AUB by driving time?
+
+The agent will decide which MCP tools to call (geocode, POI search, routing, distance matrix) and then summarize the results back in plain English.
+
+##Quick Demos / Tests for the MCP Servers
+
+I also added simple demo scripts that call the MCP server helpers directly, without going through the agent, just to sanity check the logic.
+
+From the project root:
+```bash
+# (Optional) Demo for geo tools – may hit 403 if Nominatim rate-limits
+python -m examples.demo_geo
+
+# Demo for routing tools – OSRM routing / nearest / distance matrix
+python -m examples.demo_routing
+```
+
+These scripts directly call the helper functions used by the MCP tools and print the JSON results. They are useful to debug things like:
+
+- wrong parameters,
+
+- HTTP errors from public services,
+
+- unexpected response formats.
+
+##Demo Video
+
+You can watch a short walkthrough of the project (code, MCP servers, and the agent in action) here:
+
+👉 Demo video (demo.mp4)
+
+This video shows:
+
+- how the geo-server and routing-server are defined as MCP servers,
+
+- how the tools (geocode_place, search_poi, route_between, etc.) are exposed,
+
+- and how the Map Assistant uses them to answer real map-related questions from the terminal.
