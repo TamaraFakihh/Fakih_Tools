@@ -13,3 +13,8 @@ venv/
 .vscode/
 .idea/
 *.code-workspace
+
+# OS / editor
+.DS_Store
+*.log
+
