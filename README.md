@@ -52,3 +52,14 @@ python -m venv .venv
 
 # 3. Install dependencies
 pip install -r requirements.txt
+
+```
+
+Then create a .env file in the project root:
+```bash
+# Fakih_Tools/.env
+OPENAI_API_KEY=sk-...
+```
+
+Make sure this key matches the account you used on the OpenAI platform.
+
