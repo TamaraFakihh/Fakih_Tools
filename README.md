@@ -93,7 +93,7 @@ Now you can type questions in natural language, for example:
 
 The agent will decide which MCP tools to call (geocode, POI search, routing, distance matrix) and then summarize the results back in plain English.
 
-##Quick Demos / Tests for the MCP Servers
+## Quick Demos / Tests for the MCP Servers
 
 I also added simple demo scripts that call the MCP server helpers directly, without going through the agent, just to sanity check the logic.
 
@@ -114,7 +114,7 @@ These scripts directly call the helper functions used by the MCP tools and print
 
 - unexpected response formats.
 
-##Demo Video
+## Demo Video
 
 You can watch a short walkthrough of the project (code, MCP servers, and the agent in action) here:
 
@@ -127,3 +127,4 @@ This video shows:
 - how the tools (geocode_place, search_poi, route_between, etc.) are exposed,
 
 - and how the Map Assistant uses them to answer real map-related questions from the terminal.
+
